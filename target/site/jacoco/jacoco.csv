@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+JUnit5-Samples,com.wiredbraincoffee.reward,RewardByConversionService,13,35,2,4,2,10,2,5,0,4
+JUnit5-Samples,com.wiredbraincoffee.reward,RewardByGiftService,0,68,1,7,0,16,1,8,0,5
+JUnit5-Samples,com.wiredbraincoffee.reward,RewardInformation,8,18,0,0,4,7,2,4,2,4
+JUnit5-Samples,com.wiredbraincoffee.reward,RewardByDiscountService,5,42,1,3,1,11,1,5,0,4
+JUnit5-Samples,com.wiredbraincoffee.reward,RewardService,0,22,1,1,0,8,1,4,0,4
+JUnit5-Samples,com.wiredbraincoffee.product,SpecialProductsEnum,0,49,0,0,0,10,0,3,0,3
+JUnit5-Samples,com.wiredbraincoffee.product,Product,51,18,8,0,12,7,10,3,6,3

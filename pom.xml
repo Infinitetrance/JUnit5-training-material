@@ -1,0 +1,132 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github</groupId>
+	<artifactId>JUnit5-Samples</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<description>https://github.com/infinitetrance</description>
+
+	<properties>
+		<junit.version>5.6.0</junit.version>
+		<junit-platform.version>1.6.0</junit-platform.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- JUnit Jupiter API, an API to write Jupiter[JUnit5] tests and extensions -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- JUnit Jupiter API, an API to write Jupiter[JUnit5] parameterized tests -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Jupiter Engine, an engine to run Jupiter[JUnit5] based tests on platform[JUnit 
+			Platform] -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Vintage Engine, an engine to run JUnit3,4 based tests on platform[JUnit 
+			Platform] -->
+		<dependency>
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- JUnit Platform API, an API to launch test from console, IDEs, build 
+			tools -->
+		<!-- junit-platform-launcher is part of JUnit Platform API. Used for configuring 
+			& launching tests by IDEs & build tools -->
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-launcher</artifactId>
+			<version>${junit-platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- junit-platform-runner is part of JUnit Platform API. Used for launching 
+			[Jupiter]tests in JUnit4 environment for scenarios where IDEs do not have 
+			support for JUnit5/Jupiter -->
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-runner</artifactId>
+			<version>${junit-platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Mockito API supporting JUnit Jupiter -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>3.2.4</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<!-- Utilitarian dependency management plugin. A common possible usage 
+				include finding unused dependencies -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.1.2</version>
+			</plugin>
+			<!-- Without maven-surefire-plugin 'mvn test' command would not be able 
+				to discover and run Jupiter tests -->
+			<!-- to run test through maven use command mvn test -->
+			<!-- to run tests with specific tags only use command mvn -Dtests=tag1,tag2,tagn 
+				test -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.0</version>
+				<configuration>
+					<groups>${tests}</groups>
+				</configuration>
+			</plugin>
+			<!-- jacoco plugin for marking code coverage -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.5</version>
+				<!-- So as to run jacoco agent during test execution, this agent will 
+					collect coverage information -->
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
